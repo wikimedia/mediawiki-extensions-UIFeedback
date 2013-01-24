@@ -1,0 +1,16 @@
+UIFeedback
+==========
+
+To install
+* download the extension
+  	git clone /* TODO */
+
+* add the following to `LocalSettings.php`:
+  	require_once( "$IP/extensions/UIFeedback/UiFeedback.php" );
+
+* create the table in your database
+  	run update.php from maintenance-folder
+
+* add a cache-folder to the Extensions-Directory and give write access for it 
+* this is necessary for the UserAgent-Parser
+	mkdir extension/UIFeedback/cache 
