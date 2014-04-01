@@ -6,13 +6,12 @@
  * @ingroup Extensions
  *
  * @license MIT
- * @version 0.2
  */
 
 $wgExtensionCredits[ 'other' ][ ] = array(
 	'path'           => __FILE__,
 	'name'           => 'UiFeedback',
-	'version'        => '0.2',
+	'version'        => '0.3.0',
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:UIFeedback',
 	'author'         => array( 'lbenedix', ),
 	'descriptionmsg' => 'ui-feedback-desc'
@@ -21,6 +20,7 @@ $wgExtensionCredits[ 'other' ][ ] = array(
 /* Setup */
 
 // Register files
+$wgMessagesDirs['UiFeedback'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles[ 'UiFeedback' ] = __DIR__ . '/UiFeedback.i18n.php';
 
 // add permissions and groups
