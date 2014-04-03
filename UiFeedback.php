@@ -153,8 +153,6 @@ $wgAutoloadClasses[ 'SpecialUiFeedback_api' ] = __DIR__ . '/SpecialUiFeedback_ap
 $wgAutoloadClasses[ 'UiFeedbackAPI' ] = __DIR__ . '/ApiUiFeedback.php';
 $wgAPIModules[ 'uifeedback' ]         = 'UiFeedbackAPI';
 
-$wgExtensionMessagesFiles[ 'UiFeedback' ] = __DIR__ . '/UiFeedback.i18n.php';
-
 $wgSpecialPages[ 'UiFeedback' ] = 'SpecialUiFeedback';
 
 // $wgHooks['GetPreferences'][] = 'uifeedbackPrefHook';
