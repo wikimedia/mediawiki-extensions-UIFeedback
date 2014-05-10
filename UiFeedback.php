@@ -59,7 +59,6 @@ $wgResourceModules[ 'ext.uiFeedback' ] = array(
 		'mediawiki.api',
 		'mediawiki.user',
 		'mediawiki.util',
-		'mediawiki.Uri',
 	),
 	'messages'      => array(
 		'ui-feedback-headline',

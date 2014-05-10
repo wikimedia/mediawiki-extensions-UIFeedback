@@ -119,7 +119,7 @@
 	} else {
 		/* the 'screenshot' form */
 		screenshotform = document.createElement( 'div' );
-		screenshotform.innerHTML = '<div class="ui-feedback noselect purple">' + '<div class="ui-feedback-head">' + '<div class="ui-feedback-help-button"></div>' + '<h2 class="h_purple">' + mw.message( 'ui-feedback-scr-headline' ).escaped() + '</h2>' + '<div class="ui-feedback-collapse"></div>' + '<div class="ui-feedback-expand"></div>' + '<div class="ui-feedback-close"></div>' + '</div>' + '<form id="ui-feedback-form" method="post" action="' + mw.util.wikiGetlink( 'Special:UiFeedback' ) + '" target="ui-feedback-iframe" enctype="multipart/form-data">' + '<ul>' +
+		screenshotform.innerHTML = '<div class="ui-feedback noselect purple">' + '<div class="ui-feedback-head">' + '<div class="ui-feedback-help-button"></div>' + '<h2 class="h_purple">' + mw.message( 'ui-feedback-scr-headline' ).escaped() + '</h2>' + '<div class="ui-feedback-collapse"></div>' + '<div class="ui-feedback-expand"></div>' + '<div class="ui-feedback-close"></div>' + '</div>' + '<form id="ui-feedback-form" method="post" action="' + mw.util.getUrl( 'Special:UiFeedback' ) + '" target="ui-feedback-iframe" enctype="multipart/form-data">' + '<ul>' +
 
 			/* i wanted to */
 			'<li id="ui-feedback-task-li">' + '<label class="headline">' + mw.message( 'ui-feedback-task-label' ).escaped() + '</label>' + '<select name="ui-feedback-task" id="ui-feedback-task">' + ' <option value="">' + mw.message( 'ui-feedback-task-0' ).escaped() + '</option>' + ' <option value="add/edit item">' + mw.message( 'ui-feedback-task-1' ).escaped() + '</option>' + ' <option value="add/edit label">' + mw.message( 'ui-feedback-task-2' ).escaped() + '</option>' + ' <option value="add/edit description">' + mw.message( 'ui-feedback-task-3' ).escaped() + '</option>' + ' <option value="add/edit alias">' + mw.message( 'ui-feedback-task-4' ).escaped() + '</option>' + ' <option value="add/edit links">' + mw.message( 'ui-feedback-task-5' ).escaped() + '</option>' + ' <option value="search">' + mw.message( 'ui-feedback-task-6' ).escaped() + '</option>' + ' <option value="other">' + mw.message( 'ui-feedback-task-7' ).escaped() + '</option>' + '</select>' + '</li>' +
@@ -385,7 +385,7 @@
 
 		resetForm();
 		toggleForm();
-		show_notification( mw.message( 'ui-feedback-notify-sent', mw.util.wikiGetlink( 'Special:UiFeedback' ) ), 5000, 'green' );
+		show_notification( mw.message( 'ui-feedback-notify-sent', mw.util.getUrl( 'Special:UiFeedback' ) ), 5000, 'green' );
 	}
 
 	/**
@@ -513,7 +513,7 @@
 		} ).done( function ( data ) {
 			/* reload the page */
 			window.location.href = window.location.href;
-			// window.location = mw.util.wikiGetlink( 'Special:UiFeedback' );
+			// window.location = mw.util.getUrl( 'Special:UiFeedback' );
 		} ).fail( function ( error ) {
 			mw.log( 'API failed :(', error );
 		} );
@@ -521,7 +521,7 @@
 
 	/* this function sets the filter for the specialpage */
 	function set_uifeedback_filter() {
-		var uri = new mw.Uri( mw.util.wikiGetlink( 'Special:UiFeedback' ) );
+		var uri;
 		var filter_status = [];
 		var filter_importance = [];
 		var filter_type = [];
@@ -537,12 +537,13 @@
 			filter_type.push( $( this ).val() );
 		} );
 		/* create a url */
-		uri.extend( { 'filter_status[]': filter_status } );
-		uri.extend( { 'filter_importance[]': filter_importance } );
-		uri.extend( { 'filter_type[]': filter_type } );
+		uri = mw.util.getUrl( 'Special:UiFeedback', {
+			'filter_status': filter_status,
+			'filter_importance': filter_importance,
+			'filter_type': filter_type
+		} );
 
-//		mw.log(decodeURI(uri.toString()));
-		window.location.href = uri.toString();
+		window.location.href = uri;
 	}
 
 	function addStickyNote( e ) {
@@ -734,7 +735,7 @@
 								/* thanks to danwe_wmde for pointing me at the upload-wizard extension */
 								var xhr = new XMLHttpRequest();
 								xhr.addEventListener( 'load', function ( e ) {
-									show_notification( mw.message( 'ui-feedback-notify-upload-sent', mw.util.wikiGetlink( 'Special:UiFeedback' ) ), 5000, 'purple' );
+									show_notification( mw.message( 'ui-feedback-notify-upload-sent', mw.util.getUrl( 'Special:UiFeedback' ) ), 5000, 'purple' );
 									resetForm();
 								}, false );
 								xhr.addEventListener( 'error', function ( e ) {
