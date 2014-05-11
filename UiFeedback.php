@@ -36,7 +36,8 @@ $wgGroupPermissions[ 'UIFeedback_Administator' ][ 'write_uifeedback' ] = true;
 
 // Register modules
 $wgResourceModules[ 'ext.uiFeedback' ] = array(
-	'scripts'       => array( 'resources/ext.uiFeedback.js',
+	'scripts'       => array(
+		'resources/ext.uiFeedback.js',
 		'resources/lib.jquery.htmlfeedback.js',
 		'resources/lib.html2canvas.js',
 		'resources/lib.canvas-to-blob.js',
@@ -129,8 +130,9 @@ $wgResourceModules[ 'ext.uiFeedback' ] = array(
 # Schema updates for update.php
 $wgHooks[ 'LoadExtensionSchemaUpdates' ][ ] = 'createUIFeedbackTable';
 function createUIFeedbackTable( DatabaseUpdater $updater ) {
-	$updater->addExtensionTable( 'uifeedback',
-								 __DIR__ . '/table.sql', true );
+	$updater->addExtensionTable(
+		'uifeedback',
+		__DIR__ . '/table.sql', true );
 	return true;
 }
 
@@ -138,8 +140,10 @@ function createUIFeedbackTable( DatabaseUpdater $updater ) {
 $wgHooks[ 'BeforePageDisplay' ][ ] = 'uifeedbackBeforePageDisplay';
 function uifeedbackBeforePageDisplay( &$out ) {
 	if( $out->getUser()->isAllowed( 'read_uifeedback' ) ) {
-		$out->addModules( array( 'ext.uiFeedback',
-							  'jquery.ui.draggable' ) );
+		$out->addModules( array(
+			'ext.uiFeedback',
+			'jquery.ui.draggable'
+		) );
 		return true;
 	}
 	return true;
