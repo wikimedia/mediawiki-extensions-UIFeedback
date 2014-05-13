@@ -733,23 +733,24 @@
 								mw.log( 'API result:', data );
 								/* sending the image to the upload api */
 								/* thanks to danwe_wmde for pointing me at the upload-wizard extension */
-								var xhr = new XMLHttpRequest();
-								xhr.addEventListener( 'load', function ( e ) {
+
+								api.postWithToken( 'csrf',
+								{
+									action: 'upload',
+									format: 'json',
+									filename: filename,
+									file: canvasBytes
+								}, {
+									contentType: 'multipart/form-data'
+								} )
+								.done( function () {
 									show_notification( mw.message( 'ui-feedback-notify-upload-sent', mw.util.getUrl( 'Special:UiFeedback' ) ), 5000, 'purple' );
 									resetForm();
-								}, false );
-								xhr.addEventListener( 'error', function ( e ) {
-									show_notification( mw.message( 'ui-feedback-notify-upload-fail' ), 5000, 'purple' );
-								}, false );
 
-								var formData = new FormData();
-								formData.append( 'action', 'upload' );
-								formData.append( 'format', 'json' );
-								formData.append( 'token', mw.user.tokens.get( 'editToken' ) );
-								formData.append( 'filename', filename );
-								formData.append( 'file', canvasBytes );
-								xhr.open( 'POST', mw.util.wikiScript( 'api' ), true );
-								xhr.send( formData );
+								} )
+								.fail( function () {
+									show_notification( mw.message( 'ui-feedback-notify-upload-fail' ), 5000, 'purple' );
+								} );
 								show_notification( mw.message( 'ui-feedback-notify-upload-progress' ), 5000, 'purple' );
 							} ).fail( function ( error ) {
 								mw.log( 'API failed :(', error );

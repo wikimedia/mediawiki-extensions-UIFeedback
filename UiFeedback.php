@@ -46,14 +46,12 @@ $wgResourceModules[ 'ext.uiFeedback' ] = array(
 	'dependencies'  => array(
 		'user.groups',
 		'user.options',
-		'user.tokens',
 
 		'jquery.cookie',
 		'jquery.ui.draggable',
 		'jquery.client',
 
 		'mediawiki.api',
-		'mediawiki.user',
 		'mediawiki.util',
 	),
 	'messages'      => array(
