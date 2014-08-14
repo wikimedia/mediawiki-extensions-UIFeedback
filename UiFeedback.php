@@ -139,7 +139,6 @@ function uifeedbackBeforePageDisplay( &$out ) {
 			'ext.uiFeedback',
 			'jquery.ui.draggable'
 		) );
-		return true;
 	}
 	return true;
 }

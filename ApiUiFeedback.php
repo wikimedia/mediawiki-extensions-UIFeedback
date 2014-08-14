@@ -152,7 +152,6 @@ class UiFeedbackAPI extends ApiBase {
 	// Description
 	public function getDescription() {
 		return 'This Api handles requests from the UIFeedback Extension';
-		return 'This Api handles requests from the UIFeedback Extension';
 	}
 
 	// parameter.
