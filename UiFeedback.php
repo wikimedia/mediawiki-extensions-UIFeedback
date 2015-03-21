@@ -145,7 +145,6 @@ function uifeedbackBeforePageDisplay( &$out ) {
 
 // Register SpecialPage
 $wgAutoloadClasses[ 'SpecialUiFeedback' ]     = __DIR__ . '/SpecialUiFeedback.php';
-$wgAutoloadClasses[ 'SpecialUiFeedback_api' ] = __DIR__ . '/SpecialUiFeedback_api.php';
 
 $wgAutoloadClasses[ 'UiFeedbackAPI' ] = __DIR__ . '/ApiUiFeedback.php';
 $wgAPIModules[ 'uifeedback' ]         = 'UiFeedbackAPI';
