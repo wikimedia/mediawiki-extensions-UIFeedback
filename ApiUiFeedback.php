@@ -72,11 +72,11 @@ class UiFeedbackAPI extends ApiBase {
 
 			$dbw = wfGetDB( DB_MASTER );
 			/* insert Feedback into Database */
-			$dbw->begin();
+			$dbw->startAtomic( __METHOD__ );
 			$dbw->insert( 'uifeedback', $a, __METHOD__, array() );
 			$id = $dbw->insertId();
 			$dbw->update( 'uifeedback_stats', array( 'uifs_sent = uifs_sent + 1' ), array( 'uifs_type' => $type ), __METHOD__ );
-			$dbw->commit();
+			$dbw->endAtomic( __METHOD__ );
 			/* return okay and the id (needed for screenshot upload) */
 			$this->getResult()->addValue( null, $this->getModuleName(), array( 'status' => 'ok', 'id' => $id ) );
 			/* end feedback */
@@ -123,11 +123,12 @@ class UiFeedbackAPI extends ApiBase {
 			$new_status = $params[ 'status' ];
 			$comment    = $params[ 'comment' ];
 			$reviewer   = $this->getUser()->getName();
-			$dbw        = wfGetDB( DB_MASTER );
-			$dbw->begin();
+
+			$dbw = wfGetDB( DB_MASTER );
+			$dbw->startAtomic( __METHOD__ );
+
 			$values = array( 'uif_status' => $new_status, 'uif_comment' => $comment );
 			$conds  = array( 'uif_id' => $id );
-			$dbw    = wfGetDB( DB_MASTER );
 			$dbw->update( 'uifeedback', $values, $conds, __METHOD__, array() );
 
 			$values = array( 'uifr_feedback_id' => $id,
@@ -137,7 +138,8 @@ class UiFeedbackAPI extends ApiBase {
 			);
 			$dbw->insert( 'uifeedback_reviews', $values, __METHOD__, array() );
 
-			$dbw->commit();
+			$dbw->endAtomic( __METHOD__ );
+
 			if( $dbw->doneWrites() ) {
 				$this->getResult()->addValue( null, $this->getModuleName(), array( 'status' => 'ok', 'params' => $params ) );
 			} else {
