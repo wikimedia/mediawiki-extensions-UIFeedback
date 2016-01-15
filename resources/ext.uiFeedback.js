@@ -334,7 +334,7 @@
 			$( 'body' ).htmlfeedback( 'toggle' );
 			$( 'body' ).htmlfeedback( 'color', $( 'input[name=marker]:checked' ).val() );
 
-			$( '#ui-feedback-anonymous-scr' ).attr( 'checked', false );
+			$( '#ui-feedback-anonymous-scr' ).prop( 'checked', false );
 
 			$( '#ui-feedback-anonymous-scr' ).change( function () {
 				mw.log( 'click' );
@@ -437,7 +437,7 @@
 
 
 		$( 'body' ).htmlfeedback( 'sticky', 'false' );
-		$( '#ui-feedback-highlight-checkbox' ).attr( 'checked', 'checked' );
+		$( '#ui-feedback-highlight-checkbox' ).prop( 'checked', true );
 		$( '#ui-feedback-notify' ).prop( 'disabled', false );
 		$( '#ui-feedback-anonymous' ).prop( 'disabled', false );
 		$( '#ui-feedback-anonymous-scr' ).prop( 'disabled', false );
