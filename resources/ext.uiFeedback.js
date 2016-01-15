@@ -286,8 +286,8 @@
 			} else {
 				/* hide */
 				$( 'body' ).css( {
-					'-webkit-touch-callout': 'all',
-					'user-select': 'all'
+					'-webkit-touch-callout': 'initial',
+					'user-select': 'initial'
 				} );
 			}
 		}
