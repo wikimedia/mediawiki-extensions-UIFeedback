@@ -476,7 +476,7 @@
 	help.setAttribute( 'class', 'ui-feedback-help grey noselect' );
 	help.innerHTML = '<div class="title">' + '<h3 class="h_green">' + mw.message( 'ui-feedback-help-headline' ).escaped() + '</h3>' + '<div class="ui-feedback-close"></div>' + '</div>' + '<div id="help-content"></div>';
 	/* Text for both help-dialogues */
-	var helpcontent = '<div class="text">' + mw.message( 'ui-feedback-help-text-top' ) + '</div>';
+	var helpcontent = '<div class="text">' + mw.message( 'ui-feedback-help-text-top' ).escaped() + '</div>';
 	if ( use_html2canvas ) {
 		$( help ).find( '.h_green' ).removeClass( 'h_green' ).addClass( 'h_purple' );
 		helpcontent += '<div class="title sub">' + '<h3 class="h_purple">' + mw.message( 'ui-feedback-help-subheading' ).escaped() + '</h3>' + '</div>' + '<div class="text">' + mw.message( 'ui-feedback-help-text-bottom' ).escaped() + '<div class="image"></div>' + '</div>';
