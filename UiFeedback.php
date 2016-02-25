@@ -151,6 +151,9 @@ $wgAPIModules[ 'uifeedback' ]         = 'UiFeedbackAPI';
 
 $wgSpecialPages[ 'UiFeedback' ] = 'SpecialUiFeedback';
 
+$wgAvailableRights[] = 'read_uifeedback';
+$wgAvailableRights[] = 'write_uifeedback';
+
 // $wgHooks['GetPreferences'][] = 'uifeedbackPrefHook';
 // function uifeedbackPrefHook( $user, &$preferences ) {
 //     // A checkbox
