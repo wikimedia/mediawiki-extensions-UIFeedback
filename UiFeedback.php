@@ -35,12 +35,18 @@ $wgGroupPermissions[ '*' ][ 'upload' ]          = true;
 $wgGroupPermissions[ 'UIFeedback_Administator' ][ 'write_uifeedback' ] = true;
 
 // Register modules
+$wgResourceModules[ 'jquery.htmlfeedback' ] = array(
+	'scripts'	=> array(
+		'resources/lib.canvas-to-blob.js',
+		'resources/lib.html2canvas.js',
+		'resources/lib.jquery.htmlfeedback.js',
+	),
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'UIFeedback',
+);
 $wgResourceModules[ 'ext.uiFeedback' ] = array(
 	'scripts'       => array(
 		'resources/ext.uiFeedback.js',
-		'resources/lib.jquery.htmlfeedback.js',
-		'resources/lib.html2canvas.js',
-		'resources/lib.canvas-to-blob.js',
 	),
 	'styles'        => array( 'resources/ext.uiFeedback.css' ),
 	'dependencies'  => array(
@@ -50,6 +56,7 @@ $wgResourceModules[ 'ext.uiFeedback' ] = array(
 		'jquery.cookie',
 		'jquery.ui.draggable',
 		'jquery.client',
+		'jquery.htmlfeedback',
 
 		'mediawiki.api',
 		'mediawiki.util',
