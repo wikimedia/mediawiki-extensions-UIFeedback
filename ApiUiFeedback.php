@@ -140,7 +140,7 @@ class UiFeedbackAPI extends ApiBase {
 
 			$dbw->endAtomic( __METHOD__ );
 
-			if( $dbw->doneWrites() ) {
+			if( $dbw->lastDoneWrites() ) {
 				$this->getResult()->addValue( null, $this->getModuleName(), array( 'status' => 'ok', 'params' => $params ) );
 			} else {
 				$this->dieUsage( 'Write to DB was not successful', 'error' );
