@@ -593,7 +593,7 @@
 	}
 
 
-	$( document ).ready( function () {
+	$( function () {
 		var api = new mw.Api();
 
 		/* if on the specialpage add the functions to the button */
