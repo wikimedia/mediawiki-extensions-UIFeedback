@@ -151,11 +151,7 @@ class UiFeedbackAPI extends ApiBase {
 
 	}
 
-	// Description
-	public function getDescription() {
-		return 'This Api handles requests from the UIFeedback Extension';
-	}
-
+	// apihelp-related stuff
 	// parameter.
 	public function getAllowedParams() {
 		return array(
@@ -206,38 +202,11 @@ class UiFeedbackAPI extends ApiBase {
 		);
 	}
 
-	// Describe the parameter
-	public function getParamDescription() {
-		return array_merge( parent::getParamDescription(), array(
-			'mode'                   => 'method to use in the api (feedback, review, count)',
-			'ui-feedback-anonymous'  => 'true, if the user want to post the feedback privately',
-			'ui-feedback-username'   => 'the username of the user ',
-			'ui-feedback-notify'     => '1, if the user wants be be notified about updated on this issue',
-			'ui-feedback-task'       => 'the task (position in the list of tasks)',
-			'ui-feedback-task-other' => 'free text, if other is selected in task',
-			'ui-feedback-done'       => '0: no, 1: yes, undefined',
-			'ui-feedback-type'       => '0: Screenshot, 1: Questionnaire',
-			'ui-feedback-url'        => 'the url from where the feedback came',
-			'ui-feedback-importance' => 'an integer for the importance, 0-5',
-			'ui-feedback-happened'   => '0 unknown, 1 not expected, 2 confused, 3 missing feature, 4 other',
-			'ui-feedback-text1'      => 'the comment (free text)',
-			'ui-feedback-useragent'  => 'the useragent',
-			'file'                   => 'binary data (the rendered png)',
-			'id'                     => 'for review-mode: feedback-id',
-			'status'                 => 'for review-mode: review-status',
-			'comment'                => 'for review-mode: review-comment',
-			'type'                   => 'type of stat-request',
-			'click'                  => '',
-			'show'                   => '',
-			'sent'                   => '',
-		) );
-	}
-
-	// Get examples
-	// TODO
-	public function getExamples() {
-		return array(
-			'api.php?action=apisampleoutput&face=O_o&format=xml' => 'Get a sideways look (and the usual predictions)'
-		);
+	// TODO: Add example
+	/**
+	* @see ApiBase::getExamplesMessages()
+	*/
+	protected function getExamplesMessages() {
+		return array();
 	}
 }
