@@ -22,6 +22,7 @@ $wgExtensionCredits[ 'other' ][ ] = array(
 // Register files
 $wgMessagesDirs['UiFeedback'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles[ 'UiFeedback' ] = __DIR__ . '/UiFeedback.i18n.php';
+$wgExtensionMessagesFiles[ 'UIFeedbackAlias' ] = __DIR__ . '/UIFeedback.alias.php';
 
 // add permissions and groups
 // $wgGroupPermissions['user']['userrights'] = true;
