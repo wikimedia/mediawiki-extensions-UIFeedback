@@ -109,7 +109,7 @@
 	"apihelp-uifeedback-summary": "This Api handles requests from the UIFeedback Extension",
 	"apihelp-uifeedback-param-mode": "method to use in the api (feedback, review, count)",
 	"apihelp-uifeedback-param-ui-feedback-anonymous": "true, if the user want to post the feedback privately",
-	"apihelp-uifeedback-param-ui-feedback-username": "the username of the user ",
+	"apihelp-uifeedback-param-ui-feedback-username": "the username of the user",
 	"apihelp-uifeedback-param-ui-feedback-notify": "1, if the user wants be be notified about updated on this issue",
 	"apihelp-uifeedback-param-ui-feedback-task": "the task (position in the list of tasks)",
 	"apihelp-uifeedback-param-ui-feedback-task-other": "free text, if other is selected in task",
@@ -125,7 +125,7 @@
 	"apihelp-uifeedback-param-status": "for review-mode: review-status",
 	"apihelp-uifeedback-param-comment": "for review-mode: review-comment",
 	"apihelp-uifeedback-param-type": "type of stat-request",
-	"apihelp-uifeedback-param-click": "",
-	"apihelp-uifeedback-param-show": "",
-	"apihelp-uifeedback-param-sent": ""
+	"apihelp-uifeedback-param-click": "If the request was a click",
+	"apihelp-uifeedback-param-show": "If the request was a view",
+	"apihelp-uifeedback-param-sent": "If the request was sending a form"
 }
