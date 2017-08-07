@@ -77,8 +77,6 @@ $wgResourceModules[ 'ext.uiFeedback' ] = array(
 
 		'ui-feedback-done-label',
 
-		'ui-feedback-good-label',
-		'ui-feedback-bad-label',
 		'ui-feedback-comment-label',
 
 		'ui-feedback-happened-label',
@@ -103,7 +101,6 @@ $wgResourceModules[ 'ext.uiFeedback' ] = array(
 
 		'ui-feedback-problem-send',
 		'ui-feedback-problem-reset',
-		'ui-feedback-problem-close',
 		'ui-feedback-problem-cancel',
 
 		'ui-feedback-yes',
