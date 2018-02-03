@@ -119,7 +119,6 @@ $wgResourceModules[ 'ext.uiFeedback' ] = array(
 		'ui-feedback-prerender-text1',
 		'ui-feedback-prerender-text2',
 	),
-	'position'      => 'top',
 	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'UIFeedback',
 );
