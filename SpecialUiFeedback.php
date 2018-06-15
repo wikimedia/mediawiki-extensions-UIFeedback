@@ -316,7 +316,7 @@ class SpecialUiFeedback extends SpecialPage {
 					if( !$only_one_item ) { // dont display the freetext-fields in the one-entry-only-view
 						/* text1 */
 						if( strlen( $row->uif_text1 ) > 50 ) {
-							$output_text .= Html::element( 'td', null, $this->getContext()->getLanguage()->truncate( $row->uif_text1, 50, $this->msg( 'ellipsis' )->escaped() ) );
+							$output_text .= Html::element( 'td', null, $this->getContext()->getLanguage()->truncateForVisual( $row->uif_text1, 50, $this->msg( 'ellipsis' )->escaped() ) );
 						} else {
 							$output_text .= Html::element( 'td', null, $row->uif_text1 );
 						}
