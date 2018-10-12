@@ -124,5 +124,7 @@
 	"apihelp-uifeedback-param-type": "{{doc-apihelp-param|uifeedback|type}}",
 	"apihelp-uifeedback-param-click": "{{doc-apihelp-param|uifeedback|click}}",
 	"apihelp-uifeedback-param-show": "{{doc-apihelp-param|uifeedback|show}}",
-	"apihelp-uifeedback-param-sent": "{{doc-apihelp-param|uifeedback|sent}}"
+	"apihelp-uifeedback-param-sent": "{{doc-apihelp-param|uifeedback|sent}}",
+	"right-read_uifeedback": "{{doc-right|read_uifeedback}}",
+	"right-write_uifeedback": "{{doc-right|write_uifeedback}}"
 }

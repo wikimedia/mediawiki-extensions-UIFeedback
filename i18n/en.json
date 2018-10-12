@@ -124,5 +124,7 @@
 	"apihelp-uifeedback-param-type": "type of stat-request",
 	"apihelp-uifeedback-param-click": "If the request was a click",
 	"apihelp-uifeedback-param-show": "If the request was a view",
-	"apihelp-uifeedback-param-sent": "If the request was sending a form"
+	"apihelp-uifeedback-param-sent": "If the request was sending a form",
+	"right-read_uifeedback": "Read feedback about the user interface",
+	"right-write_uifeedback": "Change feedback about the user interface"
 }
