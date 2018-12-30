@@ -202,7 +202,8 @@ class SpecialUiFeedback extends SpecialPage {
 					$output_text .= $this->msg( 'ui-feedback-special-found', $count )->escaped();
 
 				/* Result-Table */
-				$output_text .= '<table class="wikitable sortable jquery-tablesorter">';
+				$output_text .= '<table class="wikitable sortable">';
+				$output_text .= '<thead>';
 				$output_text .= '<tr>';
 				/* Headlines */
 				/* id */
@@ -242,6 +243,8 @@ class SpecialUiFeedback extends SpecialPage {
 				}
 				/* end Row*/
 				$output_text .= '</tr>';
+				$output_text .= '</thead>';
+				$output_text .= '<tbody>';
 
 				/* Rows */
 				foreach( $res as $row ) {
@@ -356,6 +359,7 @@ class SpecialUiFeedback extends SpecialPage {
 					/* end row */
 					$output_text .= '</tr>';
 				}
+				$output_text .= '</tbody>';
 				$output_text .= '</table>';
 				/* end create table */
 
