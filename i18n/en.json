@@ -125,6 +125,8 @@
 	"apihelp-uifeedback-param-click": "If the request was a click",
 	"apihelp-uifeedback-param-show": "If the request was a view",
 	"apihelp-uifeedback-param-sent": "If the request was sending a form",
+	"action-read_uifeedback": "read feedback about the user interface",
 	"right-read_uifeedback": "Read feedback about the user interface",
+	"action-write_uifeedback": "change feedback about the user interface",
 	"right-write_uifeedback": "Change feedback about the user interface"
 }
