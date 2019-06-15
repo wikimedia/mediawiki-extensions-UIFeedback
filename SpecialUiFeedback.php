@@ -47,7 +47,7 @@ class SpecialUiFeedback extends SpecialPage {
 			$conditions = array();
 
 			/* connect to the DB*/
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			/* get the rows from uifeedback-table */
 			if( $id !== -1 ) {
 				$conditions[ 'uif_id' ] = $id;
