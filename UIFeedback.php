@@ -50,7 +50,7 @@ $wgResourceModules[ 'ext.uiFeedback' ] = array(
 	),
 	'styles'        => array( 'resources/ext.uiFeedback.css' ),
 	'dependencies'  => array(
-		'user.groups',
+		'user',
 		'user.options',
 
 		'jquery.cookie',
