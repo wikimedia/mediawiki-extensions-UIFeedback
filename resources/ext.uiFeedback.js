@@ -8,7 +8,7 @@
 
 
 	/**
-	 * this functoin returns if the Extension is supported by the clients browser
+	 * this function returns if the Extension is supported by the clients browser
 	 * tested as working for:
 	 * IE >= 10
 	 * Firefox >= 3.6
