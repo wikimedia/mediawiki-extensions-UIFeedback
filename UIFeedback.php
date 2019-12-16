@@ -54,7 +54,7 @@ $wgResourceModules[ 'ext.uiFeedback' ] = array(
 		'user.options',
 
 		'jquery.cookie',
-		'jquery.ui.draggable',
+		'jquery.ui',
 		'jquery.client',
 		'jquery.htmlfeedback',
 
@@ -138,7 +138,7 @@ function uifeedbackBeforePageDisplay( &$out ) {
 	if( $out->getUser()->isAllowed( 'read_uifeedback' ) ) {
 		$out->addModules( array(
 			'ext.uiFeedback',
-			'jquery.ui.draggable'
+			'jquery.ui'
 		) );
 	}
 	return true;
