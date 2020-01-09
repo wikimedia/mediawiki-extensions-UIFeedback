@@ -38,9 +38,9 @@
 		"UIFeedbackAlias": "UIFeedback.alias.php"
 	},
 	"AutoloadClasses": {
-		"SpecialUiFeedback": "SpecialUiFeedback.php",
-		"UiFeedbackAPI": "ApiUiFeedback.php",
-		"UIFeedbackHooks": "UIFeedbackHooks.php"
+		"SpecialUiFeedback": "includes/specials/SpecialUiFeedback.php",
+		"UIFeedbackAPI": "includes/api/UIFeedbackAPI.php",
+		"UIFeedbackHooks": "includes/UIFeedbackHooks.php"
 	},
 	"ResourceModules": {
 		"jquery.htmlfeedback": {
