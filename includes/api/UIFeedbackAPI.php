@@ -1,5 +1,5 @@
 <?php
-class UiFeedbackAPI extends ApiBase {
+class UIFeedbackAPI extends ApiBase {
 	public function execute() {
 
 		$can_read  = $this->getUser()->isAllowed( 'read_uifeedback' );

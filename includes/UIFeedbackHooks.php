@@ -3,7 +3,7 @@
 class UIFeedbackHooks {
 	function createUIFeedbackTable( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'uifeedback',
-			__DIR__ . '/table.sql', true );
+			__DIR__ . '/../sql/table.sql', true );
 		return true;
 	}
 	function uifeedbackBeforePageDisplay( &$out ) {
