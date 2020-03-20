@@ -1,12 +1,18 @@
 <?php
 
 class UIFeedbackHooks {
+	/**
+	 * @param DatabaseUpdater $updater
+	 */
 	function createUIFeedbackTable( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'uifeedback',
 			__DIR__ . '/../sql/table.sql', true );
-		return true;
 	}
-	function uifeedbackBeforePageDisplay( &$out ) {
+
+	/**
+	 * @param OutputPage $out
+	 */
+	function uifeedbackBeforePageDisplay( $out ) {
 		if ( $out->getUser()->isAllowed( 'read_uifeedback' ) ) {
 			$out->addModules( [
 				'ext.uiFeedback',
@@ -14,6 +20,5 @@ class UIFeedbackHooks {
 				'jquery.ui.resizable'
 			] );
 		}
-	return true;
 	}
 }
