@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 class SpecialUiFeedback extends SpecialPage {
 
 	function __construct() {
@@ -472,8 +475,14 @@ class SpecialUiFeedback extends SpecialPage {
 						$output_text .= '<h2>' . $this->msg( 'ui-feedback-special-type-screenshot' )->escaped() . ':</h2>';
 
 						/* add the screenshot or an error message if image not found */
-						if ( wfFindFile( 'UIFeedback_screenshot_' . $row->uif_id . '.png' ) ) {
-							$output_text .= Xml::tags( 'a', [ 'href' => wfFindFile( 'UIFeedback_screenshot_' . $row->uif_id . '.png' )->getFullUrl() ], Html::element( 'img', [ 'alt' => 'screenshot', 'src' => wfFindFile( 'UIFeedback_screenshot_' . $row->uif_id . '.png' )->createThumb( 600, 600 ) ] ) );
+						if ( method_exists( MediaWikiServices::class, 'getRepoGroup' ) ) {
+							// MediaWiki 1.34+
+							$file = MediaWikiServices::getInstance()->getRepoGroup()->findFile( 'UIFeedback_screenshot_' . $row->uif_id . '.png' );
+						} else {
+							$file = wfFindFile( 'UIFeedback_screenshot_' . $row->uif_id . '.png' );
+						}
+						if ( $file ) {
+							$output_text .= Xml::tags( 'a', [ 'href' => $file->getFullUrl() ], Html::element( 'img', [ 'alt' => 'screenshot', 'src' => $file->createThumb( 600, 600 ) ] ) );
 						} else {
 							$output_text .= '<i>' . $this->msg( 'ui-feedback-special-screenshot-error' )->escaped() . '</i>';
 						}
