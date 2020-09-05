@@ -4,7 +4,7 @@ class UIFeedbackHooks {
 	/**
 	 * @param DatabaseUpdater $updater
 	 */
-	function createUIFeedbackTable( DatabaseUpdater $updater ) {
+	public static function createUIFeedbackTable( DatabaseUpdater $updater ) {
 		$updater->addExtensionTable( 'uifeedback',
 			__DIR__ . '/../sql/table.sql', true );
 	}
@@ -12,7 +12,7 @@ class UIFeedbackHooks {
 	/**
 	 * @param OutputPage $out
 	 */
-	function uifeedbackBeforePageDisplay( $out ) {
+	public static function uifeedbackBeforePageDisplay( $out ) {
 		if ( $out->getUser()->isAllowed( 'read_uifeedback' ) ) {
 			$out->addModules( [
 				'ext.uiFeedback',
