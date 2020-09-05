@@ -11,7 +11,7 @@
 		"MediaWiki": ">= 1.29.0"
 	},
 	"APIModules": {
-		"uifeedback": "UiFeedbackAPI"
+		"uifeedback": "UIFeedbackAPI"
 	},
 	"AvailableRights": [
 		"read_uifeedback",
