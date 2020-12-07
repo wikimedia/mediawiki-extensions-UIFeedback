@@ -9,7 +9,7 @@
  */
 
 if ( function_exists( 'wfLoadExtension' ) ) {
-	wfLoadExtension( 'UIFEedback' );
+	wfLoadExtension( 'UIFeedback' );
 	// Keep i18n globals so mergeMessageFileList.php doesn't break
 	$wgMessagesDirs['UIFeedback'] = __DIR__ . '/i18n';
 	$wgExtensionMessagesFiles['UIFeedbackAlias'] = __DIR__ . '/UIFeedback.alias.php';
