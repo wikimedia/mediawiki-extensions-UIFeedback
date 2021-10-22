@@ -16,8 +16,7 @@ class UIFeedbackHooks {
 		if ( $out->getUser()->isAllowed( 'read_uifeedback' ) ) {
 			$out->addModules( [
 				'ext.uiFeedback',
-				'jquery.ui.draggable',
-				'jquery.ui.resizable'
+				'jquery.ui',
 			] );
 		}
 	}
