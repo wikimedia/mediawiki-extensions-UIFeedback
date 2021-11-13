@@ -6,7 +6,7 @@ To install
   	git clone https://github.com/lbenedix/UIFeedback.git
 
 * add the following to LocalSettings.php:
-  	require_once( "$IP/extensions/UIFeedback/UiFeedback.php" );
+  	wfLoadExtension( 'UIFeedback' );
 
 * create the table in your database
   	run `update.php` from maintenance-folder
