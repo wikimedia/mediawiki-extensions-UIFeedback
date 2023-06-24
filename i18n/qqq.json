@@ -102,7 +102,6 @@
 	"ui-feedback-special-review": "headline for the review section",
 	"ui-feedback-special-previous-notes": "headline for previous reviews",
 	"ui-feedback-special-info": "label for the freetext of the review",
-	"apihelp-uifeedback-description": "{{doc-apihelp-description|uifeedback}}",
 	"apihelp-uifeedback-summary": "{{doc-apihelp-summary|uifeedback}}",
 	"apihelp-uifeedback-param-mode": "{{doc-apihelp-param|uifeedback|mode}}",
 	"apihelp-uifeedback-param-ui-feedback-anonymous": "{{doc-apihelp-param|uifeedback|ui-feedback-anonymous}}",

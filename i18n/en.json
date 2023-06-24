@@ -102,7 +102,6 @@
 	"ui-feedback-special-review": "Review",
 	"ui-feedback-special-previous-notes": "Previous Notes",
 	"ui-feedback-special-info": "Info",
-	"apihelp-uifeedback-description": "This Api handles requests from the UIFeedback Extension",
 	"apihelp-uifeedback-summary": "This Api handles requests from the UIFeedback Extension",
 	"apihelp-uifeedback-param-mode": "method to use in the api (feedback, review, count)",
 	"apihelp-uifeedback-param-ui-feedback-anonymous": "true, if the user want to post the feedback privately",
