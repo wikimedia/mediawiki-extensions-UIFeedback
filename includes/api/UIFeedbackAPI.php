@@ -67,7 +67,7 @@ class UIFeedbackAPI extends ApiBase {
 				'uif_comment'    => ''
 			];
 
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			/* insert Feedback into Database */
 			$dbw->startAtomic( __METHOD__ );
 			$dbw->insert( 'uifeedback', $a, __METHOD__, [] );
@@ -102,7 +102,7 @@ class UIFeedbackAPI extends ApiBase {
 			}
 
 			/* update table */
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$dbw->update( 'uifeedback_stats',
 				$value,
 				[ 'uifs_type' => $type ],
@@ -121,7 +121,7 @@ class UIFeedbackAPI extends ApiBase {
 			$comment    = $params[ 'comment' ];
 			$reviewer   = $this->getUser()->getName();
 
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$dbw->startAtomic( __METHOD__ );
 
 			$values = [ 'uif_status' => $new_status, 'uif_comment' => $comment ];
