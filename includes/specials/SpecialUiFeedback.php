@@ -52,7 +52,7 @@ class SpecialUiFeedback extends SpecialPage {
 			$conditions = [];
 
 			/* connect to the DB*/
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 			/* get the rows from uifeedback-table */
 			if ( $id !== -1 ) {
 				$conditions[ 'uif_id' ] = $id;
