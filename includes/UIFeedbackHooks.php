@@ -15,8 +15,7 @@ class UIFeedbackHooks {
 	public static function uifeedbackBeforePageDisplay( $out ) {
 		if ( $out->getUser()->isAllowed( 'read_uifeedback' ) ) {
 			$out->addModules( [
-				'ext.uiFeedback',
-				'jquery.ui',
+				'ext.uiFeedback'
 			] );
 		}
 	}

@@ -8,7 +8,7 @@
 	"descriptionmsg": "ui-feedback-desc",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.40"
+		"MediaWiki": ">= 1.41"
 	},
 	"APIModules": {
 		"uifeedback": "UIFeedbackAPI"
@@ -60,11 +60,11 @@
 			"dependencies": [
 				"user",
 				"user.options",
-				"jquery.cookie",
 				"jquery.ui",
 				"jquery.client",
 				"jquery.htmlfeedback",
 				"mediawiki.api",
+				"mediawiki.cookie",
 				"mediawiki.util"
 			],
 			"messages": [
