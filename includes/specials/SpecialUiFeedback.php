@@ -166,7 +166,7 @@ class SpecialUiFeedback extends SpecialPage {
 				$output_text .= '<table style="text-align:right;border-collapse: separate;border-spacing: 10px 5px;">';
 				/* add rows to table */
 				foreach ( $res_stats as $row ) {
-					$output_text .= Xml::tags( 'tr', null, Html::element( 'td', [], $row->uif_username ) . Html::element( 'td', [ 'style' => "text-align:right;" ], $row->count ) );
+					$output_text .= Html::rawElement( 'tr', [], Html::element( 'td', [], $row->uif_username ) . Html::element( 'td', [ 'style' => "text-align:right;" ], $row->count ) );
 				}
 				$output_text .= '</table>';
 				$output_text .= '</div>'; /* end users */
@@ -259,12 +259,12 @@ class SpecialUiFeedback extends SpecialPage {
 				foreach ( $res as $row ) {
 					$output_text .= '<tr>';
 					/* id */
-					$output_text .= Xml::tags( 'td', null, Html::element( 'a', [ 'href' => $title->getFullURL( [ 'id' => $row->uif_id ] ) ], $row->uif_id ) );
+					$output_text .= Html::rawElement( 'td', [], Html::element( 'a', [ 'href' => $title->getFullURL( [ 'id' => $row->uif_id ] ) ], $row->uif_id ) );
 					/* username */
 					if ( $row->uif_username === '' ) {
-						$output_text .= Html::element( 'td', null, $this->msg( 'ui-feedback-special-anonymous' )->escaped() );
+						$output_text .= Html::element( 'td', [], $this->msg( 'ui-feedback-special-anonymous' )->escaped() );
 					} else {
-						$output_text .= Xml::tags( 'td', null, Html::element( 'a', [ 'href' => Title::makeTitleSafe( NS_USER_TALK, $row->uif_username )->getFullURL() ], $row->uif_username ) );
+						$output_text .= Html::rawElement( 'td', [], Html::element( 'a', [ 'href' => Title::makeTitleSafe( NS_USER_TALK, $row->uif_username )->getFullURL() ], $row->uif_username ) );
 					}
 					/* browser */
 					/* using Html::element here seems to be more confusing then having it this way */
@@ -303,13 +303,13 @@ class SpecialUiFeedback extends SpecialPage {
 					}
 					/* time */
 					if ( $only_one_item ) {
-						$output_text .= Html::element( 'td', null, $row->uif_created );
+						$output_text .= Html::element( 'td', [], $row->uif_created );
 					}
 					/* type */
 					if ( $row->uif_type === '1' ) {
-						$output_text .= Xml::tags( 'td', null, Xml::tags( 'a', [ 'href' => $title->getFullURL( [ 'id' => htmlspecialchars( $row->uif_id ) ] ) ], Html::element( 'div', [ 'class' => 'icon screenshot-icon', 'title' => $this->msg( 'ui-feedback-special-type-screenshot' )->escaped() ], 1 ) ) );
+						$output_text .= Html::rawElement( 'td', [], Html::rawElement( 'a', [ 'href' => $title->getFullURL( [ 'id' => htmlspecialchars( $row->uif_id ) ] ) ], Html::element( 'div', [ 'class' => 'icon screenshot-icon', 'title' => $this->msg( 'ui-feedback-special-type-screenshot' )->escaped() ], 1 ) ) );
 					} else {
-						$output_text .= Xml::tags( 'td', null, Xml::tags( 'a', [ 'href' => $title->getFullURL( [ 'id' => htmlspecialchars( $row->uif_id ) ] ) ], Html::element( 'div', [ 'class' => 'icon questionnaire-icon', 'title' => $this->msg( 'ui-feedback-special-type-questionnaire' )->escaped() ], 2 ) ) );
+						$output_text .= Html::rawElement( 'td', [], Html::rawElement( 'a', [ 'href' => $title->getFullURL( [ 'id' => htmlspecialchars( $row->uif_id ) ] ) ], Html::element( 'div', [ 'class' => 'icon questionnaire-icon', 'title' => $this->msg( 'ui-feedback-special-type-questionnaire' )->escaped() ], 2 ) ) );
 					}
 					/* importance */
 					if ( $row->uif_importance == 0 ) {
@@ -320,7 +320,7 @@ class SpecialUiFeedback extends SpecialPage {
 					/* happened */
 					$output_text .= '<td>' . $happened_array[ $row->uif_happened ] . '</td>';
 					/* task */
-					$output_text .= Html::element( 'td', null, $row->uif_task );
+					$output_text .= Html::element( 'td', [], $row->uif_task );
 					/* done */
 					if ( $row->uif_done === null ) {
 						$output_text .= '<td></td>';
@@ -330,15 +330,15 @@ class SpecialUiFeedback extends SpecialPage {
 					if ( !$only_one_item ) { // dont display the freetext-fields in the one-entry-only-view
 						/* text1 */
 						if ( strlen( $row->uif_text1 ) > 50 ) {
-							$output_text .= Html::element( 'td', null, $this->getContext()->getLanguage()->truncateForVisual( $row->uif_text1, 50, $this->msg( 'ellipsis' )->escaped() ) );
+							$output_text .= Html::element( 'td', [], $this->getContext()->getLanguage()->truncateForVisual( $row->uif_text1, 50, $this->msg( 'ellipsis' )->escaped() ) );
 						} else {
-							$output_text .= Html::element( 'td', null, $row->uif_text1 );
+							$output_text .= Html::element( 'td', [], $row->uif_text1 );
 						}
 					}
 					/* status */
 					$output_text .= '<td>';
 					if ( $row->uif_status == 0 ) {
-						$output_text .= Html::element( 'b', null, $this->msg( 'ui-feedback-special-status-open' )->escaped() );
+						$output_text .= Html::element( 'b', [], $this->msg( 'ui-feedback-special-status-open' )->escaped() );
 						$output_text .= '<br/>';
 						/* only admins can change the status */
 						if ( $can_write ) {
@@ -347,9 +347,9 @@ class SpecialUiFeedback extends SpecialPage {
 					} elseif ( $row->uif_status == 1 ) {
 						/* only admins can change the status*/
 						if ( $can_write ) {
-							$output_text .= Xml::tags( 'a', [ 'href' => $title->getFullURL( [ 'id' => htmlspecialchars( $row->uif_id ) ] ) ], Html::element( 'b', null, $this->msg( 'ui-feedback-special-status-in-review' )->escaped() ) );
+							$output_text .= Html::rawElement( 'a', [ 'href' => $title->getFullURL( [ 'id' => htmlspecialchars( $row->uif_id ) ] ) ], Html::element( 'b', [], $this->msg( 'ui-feedback-special-status-in-review' )->escaped() ) );
 						} else {
-							$output_text .= Html::element( 'b', null, $this->msg( 'ui-feedback-special-status-in-review' )->escaped() );
+							$output_text .= Html::element( 'b', [], $this->msg( 'ui-feedback-special-status-in-review' )->escaped() );
 						}
 					} elseif ( $row->uif_status == 2 ) {
 						$output_text .= htmlspecialchars( $this->msg( 'ui-feedback-special-status-closed' )->escaped() ) . '<br/>';
@@ -358,11 +358,11 @@ class SpecialUiFeedback extends SpecialPage {
 					}
 					$output_text .= '</td>';
 					/* comment */
-					$output_text .= Html::element( 'td', null, $row->uif_comment );
+					$output_text .= Html::element( 'td', [], $row->uif_comment );
 					/* notify - only admins see this */
 					if ( $can_write ) {
 						if ( $row->uif_notify ) {
-							$output_text .= Xml::tags( 'td', [ 'title' => $this->msg( 'ui-feedback-special-tooltip-notify' )->escaped() ], Xml::tags( 'a', [ 'href' => Title::makeTitleSafe( NS_USER_TALK, $row->uif_username )->getFullURL() ], Html::element( 'div', [ 'class' => 'icon notify' ], 1 ) ) );
+							$output_text .= Html::rawElement( 'td', [ 'title' => $this->msg( 'ui-feedback-special-tooltip-notify' )->escaped() ], Html::rawElement( 'a', [ 'href' => Title::makeTitleSafe( NS_USER_TALK, $row->uif_username )->getFullURL() ], Html::element( 'div', [ 'class' => 'icon notify' ], 1 ) ) );
 						} else {
 							$output_text .= '<td></td>';
 						}
@@ -413,16 +413,16 @@ class SpecialUiFeedback extends SpecialPage {
 					$output_text .= Html::element( 'a', [ 'href' => $row->uif_url ], $row->uif_url );
 
 					if ( $row->uif_type === '1' ) { /* screenshot Feedback */
-						$output_text .= Html::element( 'h2', null, $this->msg( 'ui-feedback-special-table-head-details' )->escaped() );
+						$output_text .= Html::element( 'h2', [], $this->msg( 'ui-feedback-special-table-head-details' )->escaped() );
 						$output_text .= htmlspecialchars( $row->uif_text1 );
 						if ( strlen( $row->uif_text1 ) == 0 ) {
-							$output_text .= Html::element( 'i', null, $this->msg( 'ui-feedback-special-table-head-none' )->escaped() );
+							$output_text .= Html::element( 'i', [], $this->msg( 'ui-feedback-special-table-head-none' )->escaped() );
 						}
 					} else { /* Questionnaire Feedback */
-						$output_text .= Html::element( 'h2', null, $this->msg( 'ui-feedback-special-table-head-details' )->escaped() );
+						$output_text .= Html::element( 'h2', [], $this->msg( 'ui-feedback-special-table-head-details' )->escaped() );
 						$output_text .= htmlspecialchars( $row->uif_text1 );
 						if ( strlen( $row->uif_text1 ) == 0 ) {
-							$output_text .= Html::element( 'i', null, $this->msg( 'ui-feedback-special-table-head-none' )->escaped() );
+							$output_text .= Html::element( 'i', [], $this->msg( 'ui-feedback-special-table-head-none' )->escaped() );
 						}
 					}
 					$output_text .= '<div>';
@@ -484,7 +484,7 @@ class SpecialUiFeedback extends SpecialPage {
 							$file = wfFindFile( 'UIFeedback_screenshot_' . $row->uif_id . '.png' );
 						}
 						if ( $file ) {
-							$output_text .= Xml::tags( 'a', [ 'href' => $file->getFullUrl() ], Html::element( 'img', [ 'alt' => 'screenshot', 'src' => $file->createThumb( 600, 600 ) ] ) );
+							$output_text .= Html::rawElement( 'a', [ 'href' => $file->getFullUrl() ], Html::element( 'img', [ 'alt' => 'screenshot', 'src' => $file->createThumb( 600, 600 ) ] ) );
 						} else {
 							$output_text .= '<i>' . $this->msg( 'ui-feedback-special-screenshot-error' )->escaped() . '</i>';
 						}
